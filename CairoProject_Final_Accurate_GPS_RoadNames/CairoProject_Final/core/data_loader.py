@@ -19,7 +19,8 @@ class CairoTransportationData:
     PERIODS = ("morning", "afternoon", "evening", "night")
 
     def __init__(self, data_dir: str | Path = "data") -> None:
-        self.data_dir = Path(data_dir)
+    base_dir = Path(__file__).resolve().parent.parent
+    self.data_dir = base_dir / data_dir
         self.neighborhoods: List[Dict[str, Any]] = []
         self.facilities: List[Dict[str, Any]] = []
         self.existing_roads: List[Dict[str, Any]] = []
